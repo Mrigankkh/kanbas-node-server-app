@@ -1,0 +1,1 @@
+export default { "imageurl": "/images/reactjs.png"}
