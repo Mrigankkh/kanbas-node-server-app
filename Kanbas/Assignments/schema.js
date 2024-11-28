@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const assingmentSchema = new mongoose.Schema({
   title: String,
-  title: { type: mongoose.Schema.Types.ObjectId, ref: "CourseModel" },
+  course: { type: mongoose.Schema.Types.ObjectId, ref: "CourseModel" },
   points: Number,
   description: String,
   dueDate: Date,

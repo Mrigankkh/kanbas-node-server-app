@@ -10,6 +10,7 @@ import "dotenv/config";
 import CourseRoutes from "./Kanbas/Courses/routes.js";
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
 import AssignmentsRoutes from "./Kanbas/Assignments/routes.js";
+import morgan from "morgan";
 const CONNECTION_STRING =
   process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
 mongoose.connect(CONNECTION_STRING);
@@ -22,6 +23,7 @@ let corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(morgan("dev"));
 const sessionOptions = {
   secret: process.env.SESSION_SECRET || "kanbas",
   resave: false,

@@ -54,7 +54,7 @@ export default function CourseRoutes(app) {
 
   app.get("/api/courses/:courseId/assignments", async (req, res) => {
     try {
-      const { courseId } = req.params
+      const { courseId } = req.params;
       const assignments = await assignmentsDao.findAssignmentsForCourse(
         courseId
       );
@@ -73,7 +73,13 @@ export default function CourseRoutes(app) {
       const newAssignment = await assignmentsDao.createAssignment(assignment);
       res.send(newAssignment);
     } catch (error) {
+      console.log(error);
       res.status(500).send({ error: error.message });
     }
+  });
+  app.get("/api/courses/:cid/users", async (req, res) => {
+    const { cid } = req.params;
+    const users = await enrollmentsDao.findUsersForCourse(cid);
+    res.json(users);
   });
 }

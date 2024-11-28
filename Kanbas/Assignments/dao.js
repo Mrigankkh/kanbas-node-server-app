@@ -1,7 +1,7 @@
 import model from "./model.js";
 
 export const findAssignmentsForCourse = async (courseId) => {
-  return await model.find({ _id: courseId });
+  return await model.find({ course: courseId });
 };
 
 export const createAssignment = async (assignment) => {
